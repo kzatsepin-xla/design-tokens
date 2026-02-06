@@ -1,74 +1,76 @@
 # Design Tokens
 
-Репозиторий для управления дизайн-токенами проекта. Автоматическая конвертация токенов из формата W3C DTCG в CSS и SCSS переменные.
+Repository for managing project design tokens. Automatic conversion of tokens from W3C DTCG format to CSS and SCSS variables.
 
-## Описание проекта
+**Languages:** [English](#) | [Русский](README.ru.md)
 
-Этот проект содержит дизайн-токены (цвета, отступы, типографика) в едином формате и автоматически конвертирует их в CSS и SCSS переменные для использования в веб-проектах.
+## Project Description
 
-**Что делает проект:**
+This project contains design tokens (colors, spacing, typography) in a unified format and automatically converts them to CSS and SCSS variables for use in web projects.
 
-- Хранит токены в формате W3C DTCG (стандартный формат для дизайн-токенов)
-- Автоматически конвертирует токены в CSS переменные (`--token-name`)
-- Автоматически конвертирует токены в SCSS переменные (`$token-name`)
-- Обновляет файлы автоматически при изменении токенов через GitHub Actions
+**What the project does:**
 
-**Для кого этот проект:**
+- Stores tokens in W3C DTCG format (standard format for design tokens)
+- Automatically converts tokens to CSS variables (`--token-name`)
+- Automatically converts tokens to SCSS variables (`$token-name`)
+- Automatically updates files when tokens change via GitHub Actions
 
-- Дизайнеры, которые экспортируют токены из Figma
-- Разработчики, которые используют токены в своих проектах
-- Команды, которым нужна единая система дизайн-токенов
+**Who this project is for:**
 
-## Структура репозитория
+- Designers who export tokens from Figma
+- Developers who use tokens in their projects
+- Teams that need a unified design token system
+
+## Repository Structure
 
 ```
 design-tokens/
 ├── tokens/
-│   └── tokens.json              # Исходные токены из Figma (W3C DTCG формат)
+│   └── tokens.json              # Source tokens from Figma (W3C DTCG format)
 ├── config/
-│   └── style-dictionary.config.js  # Конфигурация для конвертации токенов
+│   └── style-dictionary.config.js  # Configuration for token conversion
 ├── build/
 │   ├── css/
-│   │   └── variables.css        # Сгенерированные CSS переменные
+│   │   └── variables.css        # Generated CSS variables
 │   └── scss/
-│       └── variables.scss        # Сгенерированные SCSS переменные
+│       └── variables.scss        # Generated SCSS variables
 ├── .github/
 │   └── workflows/
-│       └── build-tokens.yml      # GitHub Action для автоматической конвертации
-├── package.json                  # Зависимости проекта
-└── README.md                     # Этот файл
+│       └── build-tokens.yml      # GitHub Action for automatic conversion
+├── package.json                  # Project dependencies
+└── README.md                     # This file
 ```
 
-**Важные папки:**
+**Important folders:**
 
-- `tokens/` - здесь хранятся исходные токены. Обновляйте только этот файл.
-- `build/` - здесь находятся сгенерированные файлы. Не редактируйте их вручную!
-- `config/` - настройки конвертации (можно изменить при необходимости)
+- `tokens/` - source tokens are stored here. Only update this file.
+- `build/` - generated files are located here. Do not edit them manually!
+- `config/` - conversion settings (can be modified if needed)
 
-## Как использовать токены в CSS
+## How to Use Tokens in CSS
 
-### Шаг 1: Подключите файл с переменными
+### Step 1: Include the Variables File
 
-Скопируйте файл `build/css/variables.css` в ваш проект или подключите его напрямую:
+Copy the `build/css/variables.css` file to your project or include it directly:
 
 ```html
-<!-- В HTML файле -->
+<!-- In HTML file -->
 <link rel="stylesheet" href="path/to/variables.css">
 ```
 
-Или импортируйте в ваш основной CSS файл:
+Or import it into your main CSS file:
 
 ```css
-/* В вашем main.css */
+/* In your main.css */
 @import './build/css/variables.css';
 ```
 
-### Шаг 2: Используйте переменные в стилях
+### Step 2: Use Variables in Styles
 
-После подключения файла вы можете использовать переменные в любом месте вашего CSS:
+After including the file, you can use variables anywhere in your CSS:
 
 ```css
-/* Пример использования цветов */
+/* Example: using colors */
 .button {
   background-color: var(--color-brand-primary-default);
   color: var(--color-neutral-gray-100);
@@ -78,7 +80,7 @@ design-tokens/
   background-color: var(--color-brand-primary-hover);
 }
 
-/* Пример использования отступов */
+/* Example: using spacing */
 .card {
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
@@ -88,7 +90,7 @@ design-tokens/
   padding: var(--spacing-xl);
 }
 
-/* Пример использования типографики */
+/* Example: using typography */
 .heading {
   font-size: var(--typography-xl);
 }
@@ -98,19 +100,19 @@ design-tokens/
 }
 ```
 
-### Доступные переменные
+### Available Variables
 
-**Цвета:**
+**Colors:**
 
-- `--color-brand-primary-default` - основной цвет бренда
-- `--color-brand-primary-hover` - цвет при наведении
-- `--color-brand-secondary-default` - вторичный цвет
-- `--color-semantic-semantic-success-default` - цвет успеха
-- `--color-semantic-semantic-error-default` - цвет ошибки
-- `--color-neutral-gray-100` - светло-серый
-- `--color-neutral-gray-900` - темно-серый
+- `--color-brand-primary-default` - primary brand color
+- `--color-brand-primary-hover` - hover color
+- `--color-brand-secondary-default` - secondary color
+- `--color-semantic-semantic-success-default` - success color
+- `--color-semantic-semantic-error-default` - error color
+- `--color-neutral-gray-100` - light gray
+- `--color-neutral-gray-900` - dark gray
 
-**Отступы:**
+**Spacing:**
 
 - `--spacing-xs` - 4px
 - `--spacing-sm` - 8px
@@ -120,7 +122,7 @@ design-tokens/
 - `--spacing-2xl` - 48px
 - `--spacing-3xl` - 64px
 
-**Типографика:**
+**Typography:**
 
 - `--typography-xs` - 12px
 - `--typography-sm` - 14px
@@ -130,23 +132,23 @@ design-tokens/
 - `--typography-2xl` - 24px
 - `--typography-3xl` - 30px
 
-## Как использовать токены в SCSS
+## How to Use Tokens in SCSS
 
-### Шаг 1: Подключите файл с переменными
+### Step 1: Import the Variables File
 
-Импортируйте файл с переменными в начало вашего SCSS файла:
+Import the variables file at the beginning of your SCSS file:
 
 ```scss
-// В вашем main.scss
+// In your main.scss
 @import './build/scss/variables.scss';
 ```
 
-### Шаг 2: Используйте переменные в стилях
+### Step 2: Use Variables in Styles
 
-После импорта вы можете использовать переменные в любом месте вашего SCSS:
+After importing, you can use variables anywhere in your SCSS:
 
 ```scss
-// Пример использования цветов
+// Example: using colors
 .button {
   background-color: $color-brand-primary-default;
   color: $color-neutral-gray-100;
@@ -156,7 +158,7 @@ design-tokens/
   }
 }
 
-// Пример использования отступов
+// Example: using spacing
 .card {
   padding: $spacing-md;
   margin-bottom: $spacing-lg;
@@ -166,7 +168,7 @@ design-tokens/
   padding: $spacing-xl;
 }
 
-// Пример использования типографики
+// Example: using typography
 .heading {
   font-size: $typography-xl;
 }
@@ -176,12 +178,12 @@ design-tokens/
 }
 ```
 
-### Преимущества SCSS переменных
+### Advantages of SCSS Variables
 
-В SCSS вы можете использовать переменные более гибко:
+In SCSS, you can use variables more flexibly:
 
 ```scss
-// Использование в функциях и миксинах
+// Using in functions and mixins
 @mixin button-variant($bg-color, $text-color) {
   background-color: $bg-color;
   color: $text-color;
@@ -191,93 +193,102 @@ design-tokens/
   @include button-variant($color-brand-primary-default, $color-neutral-gray-100);
 }
 
-// Использование в вычислениях
+// Using in calculations
 .card {
   padding: $spacing-md;
-  // Можно использовать математические операции
+  // You can use mathematical operations
   margin: $spacing-md * 2;
 }
 ```
 
-### Доступные переменные
+### Available Variables
 
-Список переменных такой же, как в CSS, но с префиксом `$` вместо `--`:
+The list of variables is the same as in CSS, but with `$` prefix instead of `--`:
 
-**Цвета:**
+**Colors:**
 
 - `$color-brand-primary-default`
 - `$color-brand-primary-hover`
 - `$color-brand-secondary-default`
-- И другие...
+- And others...
 
-**Отступы:**
+**Spacing:**
 
-- `$spacing-xs`, `$spacing-sm`, `$spacing-md` и т.д.
+- `$spacing-xs`, `$spacing-sm`, `$spacing-md`, etc.
 
-**Типографика:**
+**Typography:**
 
-- `$typography-xs`, `$typography-sm`, `$typography-base` и т.д.
+- `$typography-xs`, `$typography-sm`, `$typography-base`, etc.
 
-## Как работает автоматизация
+## How Automation Works
 
-Проект использует автоматизацию на двух уровнях: локальная разработка и CI/CD через GitHub Actions.
+The project uses automation at two levels: local development and CI/CD via GitHub Actions.
 
-### Локальная разработка
+### Local Development
 
-Если вы хотите сгенерировать файлы локально на своем компьютере:
+If you want to generate files locally on your computer:
 
-1. **Установите зависимости:**
-  ```bash
+1. **Install dependencies:**
+   ```bash
    npm install
-  ```
-2. **Запустите конвертацию:**
-  ```bash
+   ```
+
+2. **Run conversion:**
+   ```bash
    npm run build
-  ```
-   Эта команда создаст файлы `build/css/variables.css` и `build/scss/variables.scss`
-3. **Режим наблюдения (опционально):**
-  ```bash
+   ```
+   This command will create `build/css/variables.css` and `build/scss/variables.scss` files
+
+3. **Watch mode (optional):**
+   ```bash
    npm run build:watch
-  ```
-   Эта команда будет автоматически перегенерировать файлы при каждом изменении `tokens/tokens.json`
+   ```
+   This command will automatically regenerate files whenever `tokens/tokens.json` changes
 
 ### GitHub Actions (CI/CD)
 
-Проект настроен с автоматической конвертацией через GitHub Actions. Это означает, что вам не нужно запускать команды вручную.
+The project is configured with automatic conversion via GitHub Actions. This means you don't need to run commands manually.
 
-**Как это работает:**
+**How it works:**
 
-1. **Вы обновляете токены:**
-  - Экспортируете токены из Figma в файл `tokens/tokens.json`
-  - Коммитите и пушите изменения в ветку `main`
-2. **GitHub Action автоматически запускается:**
-  - Workflow срабатывает при push в `main`, если изменены файлы в папке `tokens/`
-  - Устанавливается Node.js и зависимости
-  - Запускается конвертация токенов
-3. **Результаты автоматически коммитятся:**
-  - Сгенерированные файлы `build/css/variables.css` и `build/scss/variables.scss` автоматически коммитятся обратно в репозиторий
-  - Вы получаете уведомление о завершении процесса
+1. **You update tokens:**
+   - Export tokens from Figma to `tokens/tokens.json` file
+   - Commit and push changes to the `main` branch
 
-**Преимущества:**
+2. **GitHub Action automatically runs:**
+   - Workflow triggers on push to `main` if files in `tokens/` folder are changed
+   - Node.js and dependencies are installed
+   - Token conversion is executed
 
-- Не нужно запускать команды вручную
-- Всегда актуальные файлы в репозитории
-- Единый источник правды для всей команды
-- История изменений токенов сохраняется в Git
+3. **Results are automatically committed:**
+   - Generated files `build/css/variables.css` and `build/scss/variables.scss` are automatically committed back to the repository
+   - You receive a notification about process completion
 
-**Файл конфигурации:** `.github/workflows/build-tokens.yml`
+**Advantages:**
 
-### Что делать, если автоматизация не сработала?
+- No need to run commands manually
+- Always up-to-date files in the repository
+- Single source of truth for the entire team
+- Token change history is preserved in Git
 
-1. Проверьте, что вы пушите изменения в ветку `main`
-2. Убедитесь, что изменены файлы в папке `tokens/`
-3. Проверьте статус workflow в разделе "Actions" на GitHub
-4. Если нужно, запустите конвертацию локально командой `npm run build`
+**Configuration file:** `.github/workflows/build-tokens.yml`
+
+### What to Do If Automation Doesn't Work?
+
+1. Check that you're pushing changes to the `main` branch
+2. Make sure files in the `tokens/` folder are changed
+3. Check workflow status in the "Actions" section on GitHub
+4. If needed, run conversion locally with `npm run build`
+
+## Contact
+
+If you have questions or suggestions about the project, please contact me:
+
+**Email:** your@email.com
 
 ---
 
-**Полезные ссылки:**
+**Useful Links:**
 
-- [Style Dictionary документация](https://amzn.github.io/style-dictionary/)
-- [W3C Design Tokens формат](https://tr.designtokens.org/format/)
-
+- [Style Dictionary documentation](https://amzn.github.io/style-dictionary/)
+- [W3C Design Tokens format](https://tr.designtokens.org/format/)
