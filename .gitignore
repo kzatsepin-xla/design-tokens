@@ -1,19 +1,12 @@
 # Dependencies
 node_modules/
+package-lock.json
 
-# Build output
-build/
-
-# Temporary files
-tokens/tokens-style-dictionary.json
-
-# OS files
+# IDE
 .DS_Store
-Thumbs.db
-
-# Editor files
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
+
+# Temporary files
+*.log
+.cursorrules

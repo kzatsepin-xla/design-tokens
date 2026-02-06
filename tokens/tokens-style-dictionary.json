@@ -1,0 +1,110 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "default": {
+          "value": "#ff6b35",
+          "type": "color"
+        },
+        "hover": {
+          "value": "#e55a2a",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "default": {
+          "value": "#004e89",
+          "type": "color"
+        }
+      }
+    },
+    "semantic": {
+      "semantic": {
+        "success": {
+          "default": {
+            "value": "#22c55e",
+            "type": "color"
+          }
+        },
+        "error": {
+          "default": {
+            "value": "#ef4444",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "neutral": {
+      "gray": {
+        "100": {
+          "value": "#f9fafb",
+          "type": "color"
+        },
+        "900": {
+          "value": "#111827",
+          "type": "color"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "xs": {
+      "value": "4px",
+      "type": "number"
+    },
+    "sm": {
+      "value": "8px",
+      "type": "number"
+    },
+    "md": {
+      "value": "16px",
+      "type": "number"
+    },
+    "lg": {
+      "value": "24px",
+      "type": "number"
+    },
+    "xl": {
+      "value": "32px",
+      "type": "number"
+    },
+    "2xl": {
+      "value": "48px",
+      "type": "number"
+    },
+    "3xl": {
+      "value": "64px",
+      "type": "number"
+    }
+  },
+  "typography": {
+    "xs": {
+      "value": "12px",
+      "type": "number"
+    },
+    "sm": {
+      "value": "14px",
+      "type": "number"
+    },
+    "base": {
+      "value": "16px",
+      "type": "number"
+    },
+    "lg": {
+      "value": "18px",
+      "type": "number"
+    },
+    "xl": {
+      "value": "20px",
+      "type": "number"
+    },
+    "2xl": {
+      "value": "24px",
+      "type": "number"
+    },
+    "3xl": {
+      "value": "30px",
+      "type": "number"
+    }
+  }
+}

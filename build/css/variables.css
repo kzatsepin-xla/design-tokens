@@ -1,0 +1,27 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-brand-primary-default: #ff6b35;
+  --color-brand-primary-hover: #e55a2a;
+  --color-brand-secondary-default: #004e89;
+  --color-semantic-semantic-success-default: #22c55e;
+  --color-semantic-semantic-error-default: #ef4444;
+  --color-neutral-gray-100: #f9fafb;
+  --color-neutral-gray-900: #111827;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --typography-xs: 12px;
+  --typography-sm: 14px;
+  --typography-base: 16px;
+  --typography-lg: 18px;
+  --typography-xl: 20px;
+  --typography-2xl: 24px;
+  --typography-3xl: 30px;
+}
