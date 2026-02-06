@@ -1,0 +1,65 @@
+# AI Rules for Design Tokens Automation
+
+## Project Context
+- Designer managing design tokens from Figma
+- Tokens stored in: tokens/tokens.json (W3C DTCG format)
+- Need to convert JSON → CSS Variables and SCSS
+- Target platforms: Web (CSS/SCSS)
+- No coding experience - need clear explanations
+
+## Code Requirements
+- Use Style Dictionary for token transformation
+- Generate CSS custom properties (--token-name: value)
+- Generate SCSS variables ($token-name: value)
+- Support nested token structure
+- Handle color, spacing, typography token types
+
+## File Structure
+tokens/tokens.json - source tokens from Figma
+config/style-dictionary.config.js - transformation config
+build/css/ - generated CSS output
+build/scss/ - generated SCSS output
+
+## When Writing Code
+- Add comments explaining what each section does
+- Use simple, readable JavaScript
+- Provide step-by-step setup instructions
+- Explain any npm packages needed
+
+## Output Format Preferences
+CSS: Custom properties with -- prefix
+SCSS: Variables with $ prefix
+File naming: variables.css, variables.scss
+```
+
+3. **Сохраните файл:** `Cmd/Ctrl + S`
+
+### Шаг 6.5: Используйте AI Composer для создания конфигурации
+
+**Откройте AI Composer:**
+- `Cmd/Ctrl + Shift + K`
+- Или кнопка "Composer" внизу справа
+
+**Скопируйте и вставьте этот промпт:**
+```
+Мне нужна полная настройка Style Dictionary для конвертации дизайн-токенов.
+
+ЗАДАЧА:
+Настроить автоматическую конвертацию tokens/tokens.json → CSS и SCSS переменные
+
+ИСХОДНЫЕ ДАННЫЕ:
+- Файл: tokens/tokens.json в формате W3C DTCG
+- Структура токенов: colors, spacing, typography
+- Пример токена: "color/brand/primary/default": { "value": "#FF6B35", "type": "color" }
+
+ЧТО НУЖНО СДЕЛАТЬ:
+1. Создай package.json с нужными зависимостями
+2. Создай config/style-dictionary.config.js для трансформации
+3. Добавь скрипты для запуска конвертации
+4. Настрой вывод в build/css/variables.css и build/scss/variables.scss
+
+ТРЕБОВАНИЯ К ВЫВОДУ:
+CSS: --color-brand-primary-default: #FF6B35;
+SCSS: $color-brand-primary-default: #FF6B35;
+
+Объясни каждый шаг простым языком и создай все нужные файлы.

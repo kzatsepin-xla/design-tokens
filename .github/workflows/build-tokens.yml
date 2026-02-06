@@ -1,0 +1,85 @@
+name: Build Design Tokens
+
+# Этот workflow автоматически конвертирует дизайн-токены из tokens.json
+# в CSS и SCSS переменные при каждом изменении токенов
+
+on:
+  # Триггер: запускается при push в main ветку
+  push:
+    branches:
+      - main
+    # Важно: запускается только при изменении файлов в папке tokens/
+    paths:
+      - 'tokens/**'
+
+# Разрешаем workflow создавать коммиты и пушить изменения
+permissions:
+  contents: write
+
+jobs:
+  # Единственная задача - конвертация токенов
+  build-tokens:
+    # Запускается на последней версии Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Получение кода репозитория
+      # Этот шаг клонирует репозиторий в рабочую директорию GitHub Actions
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Используем токен с правами на запись для возможности пушить изменения
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Получаем полную историю коммитов (нужно для создания новых коммитов)
+          fetch-depth: 0
+
+      # Шаг 2: Установка Node.js
+      # Style Dictionary требует Node.js для работы
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          # Используем LTS версию Node.js для стабильности
+          node-version: '20'
+          # Кэшируем node_modules для ускорения последующих запусков
+          cache: 'npm'
+
+      # Шаг 3: Установка зависимостей проекта
+      # Устанавливает Style Dictionary и другие зависимости из package.json
+      - name: Install dependencies
+        run: npm ci
+        # npm ci быстрее и надежнее npm install для CI/CD
+        # Он устанавливает точные версии из package-lock.json
+
+      # Шаг 4: Запуск конвертации токенов
+      # Этот шаг запускает Style Dictionary, который читает tokens/tokens.json
+      # и генерирует build/css/variables.css и build/scss/variables.scss
+      - name: Build tokens
+        run: npm run build
+        # Команда запускает: style-dictionary build --config config/style-dictionary.config.js
+
+      # Шаг 5: Настройка Git пользователя
+      # GitHub Actions требует настроить имя и email для создания коммитов
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      # Шаг 6: Проверка изменений и коммит
+      # Этот шаг проверяет, были ли созданы новые файлы или изменены существующие
+      # Если да - создает коммит и пушит изменения обратно в репозиторий
+      - name: Commit and push changes
+        run: |
+          # Добавляем все измененные файлы в staging area
+          git add build/
+          
+          # Проверяем, есть ли изменения для коммита
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            # Создаем коммит с описанием изменений
+            git commit -m "chore: auto-generate CSS and SCSS variables from tokens [skip ci]"
+            # [skip ci] предотвращает бесконечный цикл коммитов
+            
+            # Пушим изменения в ту же ветку (main)
+            git push
+          fi

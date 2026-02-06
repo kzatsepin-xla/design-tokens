@@ -1,0 +1,21 @@
+{
+  "name": "design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens conversion to CSS and SCSS using Style Dictionary",
+  "main": "index.js",
+  "scripts": {
+    "build": "style-dictionary build --config config/style-dictionary.config.js",
+    "build:watch": "style-dictionary build --config config/style-dictionary.config.js --watch"
+  },
+  "keywords": [
+    "design-tokens",
+    "style-dictionary",
+    "css",
+    "scss"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^4.0.0"
+  }
+}
