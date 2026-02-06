@@ -280,12 +280,6 @@ The project is configured with automatic conversion via GitHub Actions. This mea
 3. Check workflow status in the "Actions" section on GitHub
 4. If needed, run conversion locally with `npm run build`
 
-## Contact
-
-If you have questions or suggestions about the project, please contact me:
-
-**Email:** your@email.com
-
 ---
 
 **Useful Links:**
